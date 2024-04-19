@@ -1,3 +1,27 @@
+@if (medObtenidosResults$ | async; as resultObject) {
+  <ul>
+    @for(item of resultObject.resultados; track item.nombre) {
+      <li>
+        <app-medicamento-detail [MedObtenidoInfo]="item" />
+      </li>
+    }
+
+  </ul>
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 <div class="container">
   <h1>Localice el medicamento</h1>
   <form class="d-flex">
@@ -20,9 +44,7 @@
         ej: "Simvastatina Cinfa</p>
       }
     </section>
-
-
-
-
-
 </div>
+
+
+-->

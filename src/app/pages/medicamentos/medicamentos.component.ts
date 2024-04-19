@@ -1,12 +1,15 @@
+import { Component, OnInit } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, NgForOf } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
 import { ObtenMedicamentoService } from '../../core/services/obten-medicamento.service';
 import { Router, RouterModule } from '@angular/router';
 import { StorageService } from '../../core/services/storage.service';
-import { MedObtenido } from '../../core/interfaces/medicamento.interface';
+import { MedObtenido, MedObtenidoResults } from '../../core/interfaces/medicamento.interface';
 import { HttpClientModule } from '@angular/common/http';
-
+import { MedicamentoDetailComponent } from './medicamento-detail/medicamento-detail.component';
+import { ErrorMessageComponent } from './error-message/error-message.component';
+import { Observable } from 'rxjs';
 
 
 
@@ -19,17 +22,19 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     HttpClientModule,
     RouterModule,
-    NgForOf
+    NgForOf,
+    AsyncPipe, MedicamentoDetailComponent, ErrorMessageComponent // tutorial Programación en español
   ],
   templateUrl: './medicamentos.component.html',
   styleUrl: './medicamentos.component.scss'
 })
 export class MedicamentosComponent implements OnInit {
 
+  public medObtenidosResults$!: Observable<MedObtenidoResults>;
 
-  nombreMed: string = '';
-  listMedObtenidos: MedObtenido[] = [];
-  public muchosResultados: number = this.listMedObtenidos.length;
+  //nombreMed: string = '';
+  //listMedObtenidos: MedObtenido[] = [];
+  //public muchosResultados: number = this.listMedObtenidos.length;
 
 
   constructor(
@@ -43,14 +48,20 @@ export class MedicamentosComponent implements OnInit {
     // Verifica si el usuario está autenticado
     if (!this._storageService.isLoggedIn()) {
       // Si el usuario no está autenticado, redirige a la página de inicio de sesión
-      this.router.navigate(['/login']);
+      this.router.navigate(['auth/login']);
       return;
-    }
-    this.listMedObtenidos = [];
-    
-    // Initialize the listMedObtenidos data (fetch from API, etc.)
-    // Example: this.listMedObtenidos = [{ nombre: 'Medicamento 1' }, { nombre: 'Medicamento 2' }];
+    };
+
+    this.medObtenidosResults$ = this._obtenMedicamentoService.getListMedObtenidos();
+
+
   }
+
+}
+
+
+
+/*
 
   public getMedicamentosObtenidos(nombreMed: string): void {
     // Implement logic to fetch medicamentos based on nombreMed
@@ -75,4 +86,4 @@ export class MedicamentosComponent implements OnInit {
   public viewMedicamento(nregistro: string) {
     this.router.navigate(['/verMedObtenido']);
     }
-}
+    */
