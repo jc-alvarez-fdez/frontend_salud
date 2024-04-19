@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
-import { MedObtenido } from '../_interfaces/medicamento.interface';
+import { MedObtenido } from '../interfaces/medicamento.interface';
 import { Router } from '@angular/router';
 
 
@@ -27,6 +27,7 @@ export class ObtenMedicamentoService {
 
     public setBuscaMed(nombreMed: string){
       this.buscaMed = nombreMed;
+      console.log(`nombre del medicamento buscado: ${nombreMed}`)
     }
 
     private getCimaBuscaNombre(): string {
@@ -37,15 +38,19 @@ export class ObtenMedicamentoService {
    public getObtenMedicamentos(): Observable<any[]> {
     const cimaBuscaNombre = this.getCimaBuscaNombre();
     console.log(cimaBuscaNombre);
+    console.log(`ruta: ${this.cimaUrl}${cimaBuscaNombre}`)
     return this.http.get<any[]>(`${this.cimaUrl}${cimaBuscaNombre}`).pipe(res => res);
-
+    
    }
+
+   public getObtenMedicamento(nregistro: string): Observable<any[]> {
+    const cimaBuscaNombre = this.getCimaBuscaNombre();
+    return this.http.get<any[]>(`${this.cimaUrl}${cimaBuscaNombre}/${nregistro.toString()}`)
+   } 
 
 
   }
-/*    public getObtenMedicamento(nregistro: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.cimaUrl}${this.cimaBuscaNombre}/${nregistro.toString()}`)
-   } */
+
 
 
 

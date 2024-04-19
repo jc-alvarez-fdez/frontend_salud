@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { MisMedicamentosService } from '../../_services/mis-medicamentos.service';
-import { MiMedicamento } from '../../_interfaces/medicamento.interface';
-import { StorageService } from '../../_services/storage.service';
+import { MisMedicamentosService } from '../../core/services/mis-medicamentos.service';
+import { MiMedicamento } from '../../core/interfaces/medicamento.interface';
+import { StorageService } from '../../core/services/storage.service';
 import { Router } from '@angular/router';
 
 

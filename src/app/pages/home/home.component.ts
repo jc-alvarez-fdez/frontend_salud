@@ -1,21 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../../_services/user.service';
+import { UserService } from '../../core/services/user.service';
+
 
 @Component({
-  selector: 'app-board-moderator',
+  selector: 'app-home',
   standalone: true,
-  imports: [],
-  templateUrl: './board-moderator.component.html',
-  styleUrl: './board-moderator.component.scss'
+  imports: [
+  ],
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss'
 })
-export class BoardModeratorComponent {
+export class HomeComponent implements OnInit {
 
   content?: string;
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.getModeratorBoard().subscribe({
+    this.userService.getPublicContent().subscribe({
       next: data => {
         this.content = data;
       },
@@ -28,5 +30,4 @@ export class BoardModeratorComponent {
       }
     });
   }
-
 }

@@ -5,7 +5,7 @@ import { routes } from './app.routes';
 import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
-import { AddTokenInterceptor } from './_utils/add-token.interceptor';
+import { AddTokenInterceptor } from './core/utils/add-token.interceptor';
 
 
 

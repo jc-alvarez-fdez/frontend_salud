@@ -3,12 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
-import { StorageService } from './_services/storage.service';
-import { AuthService } from './_services/auth.service';
+import { StorageService } from './core/services/storage.service';
+import { AuthService } from './core/services/auth.service';
 
-import { LoginComponent } from './_components/account/login/login.component';
-import { NavbarComponent } from './_components/navbar/navbar.component';
-import { AddTokenInterceptor } from './_utils/add-token.interceptor';
+import { LoginComponent } from './pages/account/login/login.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { AddTokenInterceptor } from './core/utils/add-token.interceptor';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({

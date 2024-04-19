@@ -5,11 +5,11 @@ import { Router, RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms';
 
 import { ToastrService } from 'ngx-toastr';
-import { Paciente } from '../../../_interfaces/paciente.interface';
-import { ErrorService } from '../../../_services/error.service';
-import { AuthService } from '../../../_services/auth.service';
+import { Paciente } from '../../../core/interfaces/paciente.interface';
+import { ErrorService } from '../../../core/services/error.service';
+import { AuthService } from '../../../core/services/auth.service';
 
-import { SpinnerComponent } from '../../../_shared/spinner/spinner.component';
+import { SpinnerComponent } from '../../../shared/spinner/spinner.component';
 
 
 

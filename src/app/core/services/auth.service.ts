@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { Paciente } from '../_interfaces/paciente.interface';
-import { environment } from '../../environments/environment';
+import { Paciente } from '../interfaces/paciente.interface';
+import { environment } from '../../../environments/environment';
 
 const AUTH_API: string = `${environment.endpoint}auth/`
 const httpOptions = {

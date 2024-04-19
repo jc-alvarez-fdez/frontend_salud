@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, RouterLink } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { AuthService } from '../../../_services/auth.service';
-import { StorageService } from '../../../_services/storage.service';
+import { AuthService } from '../../../core/services/auth.service';
+import { StorageService } from '../../../core/services/storage.service';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +18,9 @@ import { StorageService } from '../../../_services/storage.service';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit {
+
+
+  loading = false;
 
   form: any = {
     email: null,
