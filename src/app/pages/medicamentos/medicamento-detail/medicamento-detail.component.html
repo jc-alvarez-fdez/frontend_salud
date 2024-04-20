@@ -1,6 +1,21 @@
-<ul>
-  <li>
-    {{ MedObtenidoInfo.nombre }}<br>
-    {{ MedObtenidoInfo.labtitular}}
-  </li>
-</ul>
+<div class="card">
+  <!-- <img src="{{ MedObtenidoInfo.fotos[0].url }}" class="card-img-top" alt="..."> -->
+  <div class="card-body">
+    <h2 class="card-title">{{ MedObtenidoInfo.nombre }}</h2>
+    <h3>{{ MedObtenidoInfo.labtitular }}</h3>
+    <p class="card-text">{{MedObtenidoInfo.viasAdministracion[0].nombre}}</p>
+    <p class="card-text">{{MedObtenidoInfo.formaFarmaceutica.nombre}} </p>
+
+    <a href="#" class="btn btn-primary">Añadir a mis medicamentos</a>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+

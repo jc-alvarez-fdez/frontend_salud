@@ -5,7 +5,8 @@ import {
   HttpInterceptor,
   HttpHandler,
   HttpRequest,
-  HTTP_INTERCEPTORS
+  HTTP_INTERCEPTORS,
+  HttpInterceptorFn
 } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
 //import { Router } from '@angular/router';

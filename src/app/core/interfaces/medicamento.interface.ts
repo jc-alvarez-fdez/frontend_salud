@@ -64,7 +64,7 @@ export interface MedObtenido {
 }
 
 export interface MedObtenidoResults {
-  totalFilas: number,
+ totalFilas: number,
  pagina: number,
  tamanioPagina: number,
  resultados: MedObtenido []

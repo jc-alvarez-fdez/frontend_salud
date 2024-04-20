@@ -1,7 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { MedObtenido, MedObtenidoResults } from '../interfaces/medicamento.interface';
 import { Router } from '@angular/router';
 
@@ -18,19 +18,17 @@ const httpOptions = {
 export class ObtenMedicamentoService {
 
   private buscaMed: string = ""
-  private cimaUrl: string = 'https://cima.aemps.es/cima/rest/medicamentos?';
+
 
   constructor(
     private router: Router,
     private http: HttpClient) {}
 
     getListMedObtenidos(): Observable<MedObtenidoResults> {
-      return this.http.get<MedObtenidoResults>('https://cima.aemps.es/cima/rest/medicamentos?nombre=simvastatina cinfa');
-    }
-
+      return this.http.get<MedObtenidoResults>(`${environment.cimaURL}medicamentos?nombre=omeprazol normon`)
 
   }
-
+}
 
 
 

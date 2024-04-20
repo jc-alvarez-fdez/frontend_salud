@@ -9,7 +9,7 @@ import { MedObtenido, MedObtenidoResults } from '../../core/interfaces/medicamen
 import { HttpClientModule } from '@angular/common/http';
 import { MedicamentoDetailComponent } from './medicamento-detail/medicamento-detail.component';
 import { ErrorMessageComponent } from './error-message/error-message.component';
-import { Observable } from 'rxjs';
+import { EMPTY, Observable, catchError } from 'rxjs';
 
 
 
@@ -23,7 +23,8 @@ import { Observable } from 'rxjs';
     HttpClientModule,
     RouterModule,
     NgForOf,
-    AsyncPipe, MedicamentoDetailComponent, ErrorMessageComponent // tutorial Programación en español
+    AsyncPipe, MedicamentoDetailComponent, ErrorMessageComponent, // tutorial Programación en español
+  
   ],
   templateUrl: './medicamentos.component.html',
   styleUrl: './medicamentos.component.scss'
@@ -31,7 +32,7 @@ import { Observable } from 'rxjs';
 export class MedicamentosComponent implements OnInit {
 
   public medObtenidosResults$!: Observable<MedObtenidoResults>;
-
+  public errorMessage!: string;
   //nombreMed: string = '';
   //listMedObtenidos: MedObtenido[] = [];
   //public muchosResultados: number = this.listMedObtenidos.length;
@@ -52,7 +53,10 @@ export class MedicamentosComponent implements OnInit {
       return;
     };
 
-    this.medObtenidosResults$ = this._obtenMedicamentoService.getListMedObtenidos();
+    this.medObtenidosResults$ = this._obtenMedicamentoService.getListMedObtenidos().pipe(catchError((error: string) => {
+      this.errorMessage = error;
+      return EMPTY
+    }));
 
 
   }
