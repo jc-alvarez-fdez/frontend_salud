@@ -1,7 +1,19 @@
+<h1>Localice el medicamento</h1>
+<form class="d-flex">
+  <input
+  id="nombreMed"
+  type="text"
+  [(ngModel)]="nombreMed"
+  [ngModelOptions]=" { standalone:true }">
+  <button (click)="ngOnInit()">Buscar</button>
+</form>
+  <p>Nombre escogido: {{ nombreMed }} </p>
+
+
 @if (medObtenidosResults$ | async; as resultObject) {
   <ul class="row">
     @for(item of resultObject.resultados; track item.nombre) {
-      <li class="col">
+      <li class="" >
         <app-medicamento-detail [MedObtenidoInfo]="item" />
       </li>
     }

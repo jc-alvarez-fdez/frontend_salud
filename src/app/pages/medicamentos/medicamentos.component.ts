@@ -24,7 +24,7 @@ import { EMPTY, Observable, catchError } from 'rxjs';
     RouterModule,
     NgForOf,
     AsyncPipe, MedicamentoDetailComponent, ErrorMessageComponent, // tutorial Programación en español
-  
+
   ],
   templateUrl: './medicamentos.component.html',
   styleUrl: './medicamentos.component.scss'
@@ -33,7 +33,7 @@ export class MedicamentosComponent implements OnInit {
 
   public medObtenidosResults$!: Observable<MedObtenidoResults>;
   public errorMessage!: string;
-  //nombreMed: string = '';
+  nombreMed: string = '';
   //listMedObtenidos: MedObtenido[] = [];
   //public muchosResultados: number = this.listMedObtenidos.length;
 
@@ -53,13 +53,19 @@ export class MedicamentosComponent implements OnInit {
       return;
     };
 
+    this._obtenMedicamentoService.recibirNombreMed(this.nombreMed);
+    console.log(`Nombre enviado: ${this.nombreMed} `)
+
     this.medObtenidosResults$ = this._obtenMedicamentoService.getListMedObtenidos().pipe(catchError((error: string) => {
       this.errorMessage = error;
       return EMPTY
     }));
-
-
   }
+
+
+  public verMedicamento(nregistro: string) {
+    this.router.navigate(['/verMedObtenido', nregistro]);
+    }
 
 }
 

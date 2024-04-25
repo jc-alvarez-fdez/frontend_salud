@@ -24,10 +24,25 @@ export class ObtenMedicamentoService {
     private router: Router,
     private http: HttpClient) {}
 
+
+
+
+    recibirNombreMed(nombreMed: string){
+      this.buscaMed = nombreMed;
+      console.log(`Nombre recibido: ${this.buscaMed}`)
+      return this.buscaMed;
+    }
+
+
     getListMedObtenidos(): Observable<MedObtenidoResults> {
-      return this.http.get<MedObtenidoResults>(`${environment.cimaURL}medicamentos?nombre=omeprazol normon`)
+      console.log(`nombre del medicamento buscado: ${this.buscaMed}`)
+
+      return this.http.get<MedObtenidoResults>(`${environment.cimaURL}medicamentos?nombre=${this.buscaMed}`)
+
 
   }
+
+
 }
 
 

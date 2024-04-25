@@ -12,6 +12,7 @@ import { BoardModeratorComponent } from './components/board/board-moderator/boar
 import { BoardUserComponent } from './components/board/board-user/board-user.component';
 import { LoginComponent } from './pages/account/login/login.component';
 import { RegisterComponent } from './pages/account/register/register.component';
+import { MedicamentoVerComponent } from './pages/medicamentos/medicamento-ver/medicamento-ver.component';
 
 export const routes: Routes = [
 
@@ -22,6 +23,7 @@ export const routes: Routes = [
 
 
   { path: 'obten_medicamentos',  component: MedicamentosComponent },
+  { path: 'ver_medicamento', component: MedicamentoVerComponent},
   { path: 'mis_medicamentos',  component: MisMedicamentosComponent },
   { path: 'administraciones', component: AdministracionesComponent},
 
