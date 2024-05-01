@@ -52,20 +52,35 @@ export class MedicamentosComponent implements OnInit {
       this.router.navigate(['auth/login']);
       return;
     };
-
+/*     if (this.nombreMed.length !== 0)
     this._obtenMedicamentoService.recibirNombreMed(this.nombreMed);
-    console.log(`Nombre enviado: ${this.nombreMed} `)
-
+    console.log(`Nombre enviado: ${this.nombreMed} `) */
+/*
     this.medObtenidosResults$ = this._obtenMedicamentoService.getListMedObtenidos().pipe(catchError((error: string) => {
       this.errorMessage = error;
       return EMPTY
-    }));
+    })); */
   }
 
 
+  mostrarMedObtebidos() {
+    if (this.nombreMed.trim().length === 0) {
+      // No se busca si el nombre está vacío
+      this.medObtenidosResults$ = EMPTY; // Emite un Observable vacío
+    }
+    else {
+        this._obtenMedicamentoService.recibirNombreMed(this.nombreMed);
+        console.log(`Nombre enviado: ${this.nombreMed} `)
+      this.medObtenidosResults$ = this._obtenMedicamentoService.getListMedObtenidos().pipe(catchError((error: string) => {
+        this.errorMessage = error;
+        return EMPTY
+      }));
+    }
+  }
+/*
   public verMedicamento(nregistro: string) {
     this.router.navigate(['/verMedObtenido', nregistro]);
-    }
+    } */
 
 }
 
