@@ -20,4 +20,13 @@ export class MisMedicamentosService {
    getMisMedicamentos(): Observable<MiMedicamento[]> {
     return this.http.get<MiMedicamento[]>(`${this.myAppUrl}${this.myApiUrl}`);
    }
+
+   // Nuevo método para agregar un medicamento
+   addMedicamento(medicamento: MiMedicamento): Observable<MiMedicamento> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    
+    return this.http.post<MiMedicamento>(`${this.myAppUrl}${this.myApiUrl}`, medicamento, httpOptions);
+  }
 }

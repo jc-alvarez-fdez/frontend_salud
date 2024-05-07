@@ -37,16 +37,16 @@ interface VTM {
 }
 
 export interface MedObtenido {
-  nregistro?: string;
-  nombre?: string;
-  labtitular?: string;
+  nregistro: string;
+  nombre: string;
+  labtitular: string;
   cpresc?: string;
   estado?: Estado;
   comerc?: boolean;
   receta?: boolean;
   generico?: boolean;
   conduc?: boolean;
-  triangulo?: boolean;
+  triangulo: boolean;
   huerfano?: boolean;
   biosimilar?: boolean;
   nosustituible?: NotaSustituible;
@@ -54,11 +54,11 @@ export interface MedObtenido {
   notas?: boolean;
   materialesInf?: boolean;
   ema?: boolean;
-  docs?: Documento[];
+  docs: Documento[];
   fotos: Foto[];
   viasAdministracion: ViaAdministracion[];
   formaFarmaceutica?: FormaFarmaceutica;
-  formaFarmaceuticaSimplificada?: FormaFarmaceutica;
+  formaFarmaceuticaSimplificada: FormaFarmaceutica;
   vtm?: VTM;
   dosis?: string;
 }
