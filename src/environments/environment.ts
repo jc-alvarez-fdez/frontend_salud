@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   endpoint: 'http://localhost:3000/',
-  cimaURL: 'https://cima.aemps.es/cima/rest/'
+  cimaUrl: 'https://cima.aemps.es/cima/rest/'
 };
 
 /*

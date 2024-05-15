@@ -1,4 +1,31 @@
-<div class="col-md-12">
+
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <div class="mb3">
+      <label for="nombre">Nombre</label>
+      <input type="text" class="form-control" formControlName="nombre" >
+  </div>
+  <div class="mb3">
+    <label for="apellidos">Apellidos</label>
+    <input type="text" class="form-control" formControlName="apellidos" >
+  </div>
+  <div class="mb3">
+    <label for="email">Email</label>
+    <input type="mail" class="form-control" formControlName="email" >
+  </div>
+  <div class="mb3">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" formControlName="password" >
+  </div>
+  <div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </div>
+
+
+</form>
+
+
+<!-- Anterior
+  <div class="col-md-12">
   <div class="card card-container">
     <img
       id="profile-img"
@@ -13,41 +40,51 @@
       novalidate
     >
       <div class="form-group">
-        <label for="email">email</label>
+        <label for="nombre">Nombre</label>
         <input
           type="text"
           class="form-control"
-          name="email"
-          [(ngModel)]="form.email"
+          name="nombre"
+          [(ngModel)]="form.nombre"
           required
-          minlength="3"
-          maxlength="20"
-          #email="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
+          #nombre="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && nombre.errors }"
         />
-        @if (email.errors && f.submitted) {
+        @if (nombre.errors && f.submitted) {
         <div class="invalid-feedback">
-          @if (email.errors['required']) {
-          <div>email is required</div>
-          }
-          @if (email.errors['minlength']) {
-          <div>email must be at least 3 characters</div>
-          }
-          @if (email.errors['maxlength']) {
-          <div>email must be at most 20 characters</div>
+          @if (nombre.errors['required']) {
+          <div>El nombre es necesario</div>
           }
         </div>
         }
       </div>
       <div class="form-group">
-        <label for="email">Email</label>
+        <label for="apellidos">Apellidos</label>
+        <input
+          type="text"
+          class="form-control"
+          name="apellidos"
+          [(ngModel)]="form.apellidos"
+          required
+          #apellidos="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && apellidos.errors }"
+        />
+        @if (apellidos.errors && f.submitted) {
+        <div class="invalid-feedback">
+          @if (apellidos.errors['required']) {
+          <div>Los apellidos son necesarios</div>
+          }
+        </div>
+        }
+      </div>
+      <div class="form-group">
+        <label for="apellidos">Email</label>
         <input
           type="email"
           class="form-control"
           name="email"
           [(ngModel)]="form.email"
           required
-          email
           #email="ngModel"
           [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
         />
@@ -100,3 +137,4 @@
     }
   </div>
 </div>
+-->
